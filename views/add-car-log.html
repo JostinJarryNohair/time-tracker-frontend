@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Detailing - Add Car Log</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen">
+    <nav class="bg-white shadow-lg">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <h1 class="text-xl font-bold text-gray-800">Add New Car Log</h1>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button
+              id="backBtn"
+              class="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Back to Car Logs
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <div class="px-4 py-6 sm:px-0">
+        <div class="bg-white shadow rounded-lg p-6">
+          <form id="addCarLogForm" class="space-y-6">
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <div>
+                <label
+                  for="customerName"
+                  class="block text-sm font-medium text-gray-700"
+                >
+                  Customer Name
+                </label>
+                <input
+                  type="text"
+                  id="customerName"
+                  name="customerName"
+                  required
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="serviceType"
+                  class="block text-sm font-medium text-gray-700"
+                >
+                  Service Type
+                </label>
+                <select
+                  id="serviceType"
+                  name="serviceType"
+                  required
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                >
+                  <option value="">Select a service</option>
+                  <option value="Basic Wash">Basic Wash</option>
+                  <option value="Full Detail">Full Detail</option>
+                  <option value="Interior Only">Interior Only</option>
+                  <option value="Exterior Only">Exterior Only</option>
+                  <option value="Custom">Custom</option>
+                </select>
+              </div>
+
+              <div>
+                <label
+                  for="vehicleMake"
+                  class="block text-sm font-medium text-gray-700"
+                >
+                  Vehicle Make
+                </label>
+                <input
+                  type="text"
+                  id="vehicleMake"
+                  name="vehicleMake"
+                  required
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="vehicleModel"
+                  class="block text-sm font-medium text-gray-700"
+                >
+                  Vehicle Model
+                </label>
+                <input
+                  type="text"
+                  id="vehicleModel"
+                  name="vehicleModel"
+                  required
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="vehicleYear"
+                  class="block text-sm font-medium text-gray-700"
+                >
+                  Vehicle Year
+                </label>
+                <input
+                  type="number"
+                  id="vehicleYear"
+                  name="vehicleYear"
+                  required
+                  min="1900"
+                  max="2099"
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="vehicleColor"
+                  class="block text-sm font-medium text-gray-700"
+                >
+                  Vehicle Color
+                </label>
+                <input
+                  type="text"
+                  id="vehicleColor"
+                  name="vehicleColor"
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="scheduledDate"
+                  class="block text-sm font-medium text-gray-700"
+                >
+                  Scheduled Date
+                </label>
+                <input
+                  type="datetime-local"
+                  id="scheduledDate"
+                  name="scheduledDate"
+                  required
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="assignedEmployee"
+                  class="block text-sm font-medium text-gray-700"
+                >
+                  Assigned Employee
+                </label>
+                <select
+                  id="assignedEmployee"
+                  name="assignedEmployee"
+                  required
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                >
+                  <option value="">Select an employee</option>
+                </select>
+              </div>
+
+              <div>
+                <label
+                  for="price"
+                  class="block text-sm font-medium text-gray-700"
+                >
+                  Price
+                </label>
+                <input
+                  type="number"
+                  id="price"
+                  name="price"
+                  required
+                  min="0"
+                  step="0.01"
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
+              </div>
+
+              <div class="sm:col-span-2">
+                <label
+                  for="notes"
+                  class="block text-sm font-medium text-gray-700"
+                >
+                  Notes
+                </label>
+                <textarea
+                  id="notes"
+                  name="notes"
+                  rows="3"
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                ></textarea>
+              </div>
+            </div>
+
+            <div
+              id="errorMessage"
+              class="hidden text-red-500 text-sm text-center"
+            ></div>
+
+            <div class="flex justify-end">
+              <button
+                type="submit"
+                class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              >
+                Add Car Log
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script src="/js/add-car-log.js"></script>
+  </body>
+</html>
