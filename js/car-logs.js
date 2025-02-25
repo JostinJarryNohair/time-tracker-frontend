@@ -15,7 +15,7 @@ document.getElementById("backBtn").addEventListener("click", () => {
 });
 
 document.getElementById("addNewBtn").addEventListener("click", () => {
-  window.location.href = "/add-car-log.html";
+  window.location.href = "../views/add-car-log.html";
 });
 
 document.getElementById("statusFilter").addEventListener("change", () => {
@@ -50,6 +50,8 @@ document.getElementById("nextPage").addEventListener("click", () => {
 
 // Fetch and display car logs
 async function fetchCarLogs() {
+  const BACKEND_BASE_URL = "http://localhost:3000";
+
   try {
     const status = document.getElementById("statusFilter").value;
     const date = document.getElementById("dateFilter").value;
@@ -61,11 +63,14 @@ async function fetchCarLogs() {
       ...(date && { date }),
     });
 
-    const response = await fetch(`/api/car-logs?${queryParams}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await fetch(
+      `${BACKEND_BASE_URL}/api/car-logs?${queryParams}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     if (!response.ok) {
       throw new Error("Failed to fetch car logs");

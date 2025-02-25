@@ -11,8 +11,10 @@ document.getElementById("backBtn").addEventListener("click", () => {
 
 // Fetch employees for the dropdown
 async function fetchEmployees() {
+  const BACKEND_BASE_URL = "http://localhost:3000";
+
   try {
-    const response = await fetch("/api/employees", {
+    const response = await fetch(`${BACKEND_BASE_URL}/api/employees`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -62,7 +64,9 @@ document
     };
 
     try {
-      const response = await fetch("/api/car-logs", {
+      const BACKEND_BASE_URL = "http://localhost:3000";
+
+      const response = await fetch(`${BACKEND_BASE_URL}/api/car-logs`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -74,13 +78,13 @@ document
       const data = await response.json();
 
       if (response.ok) {
-        window.location.href = "/car-logs.html";
+        window.location.href = "../views/car-logs.html";
       } else {
         errorMessage.textContent = data.message || "Failed to add car log";
         errorMessage.classList.remove("hidden");
       }
     } catch (error) {
-      errorMessage.textContent = "An error occurred. Please try again.";
+      errorMessage.textContent = `${error}An error occurred. Please try again.`;
       errorMessage.classList.remove("hidden");
     }
   });
